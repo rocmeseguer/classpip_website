@@ -1,0 +1,223 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+@include mat-core();
+
+@import './variables';
+@import './materialize';
+@import '~@fortawesome/fontawesome-free/css/all.css';
+
+@import '~prismjs/plugins/toolbar/prism-toolbar.css';
+@import '~prismjs/plugins/line-numbers/prism-line-numbers.css';
+@import '~prismjs/themes/prism-coy';
+
+
+// Create the theme object (a Sass map containing all of the palettes).
+// classpip theme
+$classpip-theme: mat-light-theme($classpip-primary, $classpip-accent, $classpip-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($classpip-theme);
+
+
+@import './mixins';
+
+html,
+body {
+  font-family: "Roboto","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+  height: 100%;
+  margin: 0;
+}
+
+@include material-classpip-theme($classpip-theme);
+
+a {
+  color: #b14dff;
+}
+
+a:hover {
+  color: #df00d3;
+}
+
+.main-content {
+	min-height: calc(100% - 203px);
+	padding: 20px 35px;
+}
+
+.container {
+  min-height: 100%;
+}
+
+.mat-toolbar.mat-primary {
+	z-index: 1;
+}
+
+.fill-space {
+	flex: 1 1 auto;
+}
+
+#userCaret,
+#devCaret {
+  transform: rotate(0deg);
+  transition: transform 0.25s linear;
+}
+
+#userCaret.open,
+#devCaret.open {
+  transform: rotate(180deg);
+  transition: transform 0.25s linear;
+}
+
+.home-card {
+	background-color:#4527a0;
+	margin: -20px -35px;
+  border-radius: 0 !important;
+	.left {
+    position: relative;
+    .homecard-text {
+  		flex-direction: column;
+  		color: #fff;
+      border: 8px solid #fff;
+      padding: 0.3em 1.5em;
+      position: static;
+      transform: none;
+  		h3 {
+  			text-align: justify;
+  		}
+	  }
+  }
+	.right img {
+		max-width: 400px;
+    margin: 0 auto;
+    display: block;
+	}
+}
+
+.parallax {
+	margin: -10px -35px;
+  /* Set a specific height */
+  min-height: 479px;
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed!important;
+  /*background-position: center!important;*/
+  background-repeat: no-repeat!important;
+  background-size: cover!important;
+}
+
+.home-parallax {
+	/* The image used */
+  background-image: url("../assets/img/students-connected.jpg");
+  position: relative;
+  .text-container {
+    .parallas-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.1);
+      padding: 4px 10%;
+      color: #fff;
+    }
+  }
+}
+
+.home-image {
+	width: 100%;
+	margin-bottom: -4px;
+}
+
+section {
+  margin-bottom: 5em;
+  p i {
+    background-color: lightcyan;
+  }
+}
+
+pre[class*="language-"] {
+  background-color: transparent;
+}
+
+pre[class*="language-"]:before, pre[class*="language-"]:after {
+  display: none;
+}
+
+.repositorios-list {
+  padding: 0;
+  font-size: 0;
+  :nth-child(1) a {
+    background-color: #562468;
+    border-bottom: 2px solid #fafafa;
+  }
+  :nth-child(2) a {
+    background-color: #6209cc;
+    border-bottom: 2px solid #fafafa;
+  }
+  :nth-child(3) a {
+    background-color: #7f267f;
+    border-bottom: 2px solid #fafafa;
+  }
+  :nth-child(4) a {
+    background-color: #682547;
+  }
+  li {
+    display: inline-block;
+    width: 100%;
+    font-size: 1rem;
+    a {
+      font-weight: bold;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+      text-decoration: none;
+      display: block;
+      width: 100%;
+      height: 100%;
+      &:hover {
+        color: #ec539f;
+      }
+    }
+  }
+}
+
+a.second-level .mat-list-item-content {
+  padding-left: 35px !important;
+}
+
+@media only screen and (max-device-width: 768px) {
+  .parallax {
+    background-attachment: scroll;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .repositorios-list {
+    li {
+      width: 50%;
+    }
+    :nth-child(1) a {
+      border: 1px solid #fafafa;
+    }
+    :nth-child(2) a {
+      border: 1px solid #fafafa;
+    }
+    :nth-child(3) a {
+      border: 1px solid #fafafa;
+    }
+    :nth-child(4) a {
+      border: 1px solid #fafafa;
+    }
+  }
+  .home-card .left {
+    min-height: 410px;
+    .homecard-text {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+  }
+} 
